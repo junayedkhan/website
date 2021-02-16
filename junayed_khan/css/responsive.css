@@ -1,0 +1,451 @@
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    /* navber start */
+    .navbar{
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 0 2rem;
+    }
+    .navMenu{
+        display: none;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        margin-right: 5rem;
+        top: 60px;
+    }
+    .navMenu ul{
+        flex-direction: column;
+        background-color: #444444;
+        opacity: 0.8;
+        text-align: center;
+    }
+    .navMenu ul li a{
+        color: #ffffff;
+    }
+    .navMenu ul li a.active{
+        text-decoration: underline;
+    }
+    .navMenu ul li a:hover{
+        color:  var(--color);
+        transition: 0.5s ease-in-out;
+        text-decoration: underline;
+    }
+    .responsiveMenuIcon{
+        display: flex;
+    }
+    .navMenuShow{
+        display: block;
+    }
+    /* navber end */
+
+    /* baner start */
+    .baner{
+        margin: 0 2rem;
+        margin-top: 60px; 
+    }
+    .banerText{
+        margin-top: 1rem;
+        margin-left: 0rem;
+    }
+    .banerText h2{
+        font-size: 28px;
+    }
+    .banerImg{
+        width: 160px;
+        height: 400px;
+    }
+    /* baner end */
+
+    /* about section start */
+    .aboutSection{
+        margin: 0 2rem;
+    }
+    .aboutSectionBody{
+        flex-direction: column;
+        align-items: center;
+    }
+    .aboutSectionimg{
+        margin-bottom: 1rem;
+        margin-left: 2rem;
+    }
+    /* about section end */
+
+    /* chart section start */
+    .skillsSection{
+        margin: 0 2rem;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* stats section start */
+    .statsSection{
+        margin: 0 2rem;
+        display: flex;
+        justify-content: space-around;
+        padding: 4rem 0;   
+    }
+    .statsItem{
+        width: 90px;
+        height: 150px;
+        text-align: center;
+        border: 2px solid var(--color);
+        border-radius: 5px;
+    }
+    .statsItem i{
+        font-size: 30px;
+        margin-top: 20px;
+    }
+    .statsItemContent .counter{
+        font-size: 42px;
+        color: var(--color);
+    }
+    .statsItemContent h3{
+        font-size: 15px;
+    }
+    /* stats section end */
+
+    /* project section start */
+    .projectSection{
+        margin: 0 2rem;
+        padding: 4rem 0;
+    }
+    .projectSectionBody{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .projectSectionItem{
+        margin-bottom: 1.5rem;
+    }
+
+    /* project section end */
+
+    /* contect section start */
+    .contectSection{
+        margin: 0 2rem;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+    .input-1{
+        width: 120px;
+    }
+    .input-2{
+        width: 120px;
+    }
+    .input-3{
+        width: 250px;
+    }
+    /* contect section end */
+
+    /* footer start */
+    .footerBody{
+        margin: 0 2rem;
+    }
+    .footerIcon i{
+        margin: 0 px;
+        font-size: 20px;
+        margin-top: 10px;
+        cursor: pointer;
+        color: #ffffff;
+    }
+    /* footer end */
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .navbar{
+        margin: 0 5rem;;
+    }
+    .baner{
+        margin: 0 5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 60px;
+    }
+    .banerImg{
+        width: 200px;
+    }
+    .banerText{
+        margin-left: 0rem;
+    }
+    .banerText> h2{
+        color:var(--color);
+        padding: 7px 0;
+        font-size: 32px;
+    }
+    .aboutSection{
+        margin: 0 5rem;
+        padding-bottom: 4rem;
+    }
+    .aboutSectionBody{
+        margin-top: 5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 2rem;
+    }
+    .aboutSectionimg{
+        margin-bottom: 1rem;
+        margin-left: 3.5rem;
+    }
+    .aboutSectionimg img{
+        margin-bottom: 2rem;
+    }
+
+    .aboutSectionText p{
+        padding: 15px 0;
+    }
+
+    .skillsSection{
+        margin: 0 5rem;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .statsSection{
+        margin: 0 5rem;
+        display: flex;
+        justify-content: space-around;
+        padding: 4rem 0;   
+    }
+    .statsItem{
+        width: 150px;
+        height: 200px;
+        text-align: center;
+        border: 2px solid var(--color);
+        border-radius: 5px;
+    }
+    .projectSection{
+        margin: 0 5rem;
+        padding: 4rem 0;
+    }
+    .projectSectionItem{
+        width: 200px;
+        border-radius: 5px;
+        border: 1px solid var(--color);
+        background-color: #f2f2f2;
+    }
+    .projectSectionImg img{
+        width: 197.5px;
+        height: 200px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+    .contectSection{
+        margin: 0 5rem;
+        padding: 4rem 0;
+    }
+    .input-1{
+        width: 200px;
+    }
+    .input-2{
+        width: 200px;
+    }
+    .input-3{
+        width: 410px;
+    }
+    .footerBody{
+        margin: 0 5rem;
+        padding: 1rem 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .navbar{
+        margin: 0 8rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .baner{
+        margin: 0 8rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 60px;
+    }
+    .banerText{
+        margin-left: 3rem;
+    }
+    .banerText> h2{
+        color:var(--color);
+        padding: 7px 0;
+        font-size: 45px;
+    }
+    .banerImg{
+        width: 300px;
+    }
+    .aboutSection{
+        margin: 0 8rem;
+        padding-bottom: 4rem;
+    }
+    .aboutSectionBody{
+        margin-top: 5rem;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        align-items: center;
+    }
+    .aboutSectionimg{
+        margin-bottom: 1rem;
+        margin-left: 0rem;
+    }
+    .skillsSection{
+        margin: 0 8rem;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .statsSection{
+        margin: 0 8rem;
+        display: flex;
+        justify-content: space-around;
+        padding: 4rem 0;   
+    }
+    .statsItem{
+        width: 170px;
+        height: 200px;
+        text-align: center;
+        border: 2px solid var(--color);
+        border-radius: 5px;
+    }
+    .projectSection{
+        margin: 0 8rem;
+        padding: 4rem 0;
+    }
+    .projectSectionItem{
+        width: 230px;
+        border-radius: 5px;
+        border: 1px solid var(--color);
+        background-color: #f2f2f2;
+    }
+    .projectSectionImg img{
+        width: 227.5px;
+        height: 200px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+    .contectSection{
+        margin: 0 8rem;
+        padding: 4rem 0;
+    }
+    .input-1{
+        width: 250px;
+    }
+    .input-2{
+        width: 250px;
+    }
+    .input-3{
+        width: 509px;
+    }
+    .footerBody{
+        margin: 0 8rem;
+        padding: 1rem 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .navbar{
+        margin: 0 10rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .baner{
+        margin: 0 10rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 60px;
+    }
+    .banerText{
+        margin-left: 3rem;
+    }
+    .banerText> h2{
+        color:var(--color);
+        padding: 7px 0;
+        font-size: 45px;
+    }
+    .aboutSection{
+        margin: 0 10rem;
+        padding-bottom: 4rem;
+    }
+    .aboutSectionBody{
+        margin-top: 5rem;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        align-items: center;
+    }
+    .skillsSection{
+        margin: 0 10rem;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+        align-items: center;
+    }
+    .statsSection{
+        margin: 0 10rem;
+        display: flex;
+        justify-content: space-around;
+        padding: 4rem 0;   
+    }
+    .projectSection{
+        margin: 0 10rem;
+        padding: 4rem 0;
+    }
+    .projectSectionItem{
+        width: 300px;
+        border-radius: 5px;
+        border: 1px solid var(--color);
+        background-color: #f2f2f2;
+    }
+    .projectSectionImg img{
+        width: 297.5px;
+        height: 200px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+    .contectSection{
+        margin: 0 10rem;
+        padding: 4rem 0;
+    }
+    .input-1{
+        width: 250px;
+    }
+    .input-2{
+        width: 250px;
+    }
+    .input-3{
+        width: 509px;
+    }
+    .footerBody{
+        margin: 0 10rem;
+        padding: 1rem 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+}

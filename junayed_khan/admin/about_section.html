@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin panel</title>
+    <link rel="stylesheet" href="../admin/css/style.css">
+    <link rel="stylesheet" href="../admin/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+             <div class="col-md-8 mt-3 mb-3">
+                  <div class="card">
+                      <div class="card-header d-flex justify-content-between align-items-center">
+                          <h4>About Section</h4>
+                          <a href="./admin.html"><button class="btn btn-primary">Back</button></a>
+                      </div>
+                      <div class="card-content">
+                        <form action="" class="about_form_submit">
+
+                            <div class="form-group mb-2 ">
+                              <label for="about_title" class="mt-2">about_title</label>
+                              <input type="text" class="form-control" name="about_title" />
+                              <span class="error_form" id="about_title_error_message"></span>
+                            </div>
+
+                            <div class="form-group mb-2">
+                              <label for="about_photo">about_photo</label>
+                              <input type="file" class="form-control" name="about_photo" />
+                              <span class="error_form" id="about_photo_error_message"></span>
+                            </div>
+
+                            <div class="form-group mb-2">
+                              <label for="about_designation">about_designation</label>
+                              <input type="text" class="form-control" name="about_designation" />
+                              <span class="error_form" id="about_designation_error_message"></span>
+                            </div>
+
+                            <div class="form-group mb-2">
+                              <label for="about_description">about_description</label>
+                              <input type="text" class="form-control" name="about_description" />
+                              <span class="error_form" id="about_description_error_message"></span>
+                            </div>
+
+                            <div class="form-group mb-2">
+                              <label for="about_name">about_name</label>
+                              <input type="text" class="form-control" name="about_name" />
+                              <span class="error_form" id="about_name_error_message"></span>
+                            </div>
+
+                            <div class="form-group mb-2">
+                              <label for="about_email">about_email</label>
+                              <input type="text" class="form-control" name="about_email" />
+                              <span class="error_form" id="about_email_error_message"></span>
+                            </div>
+
+                            <div class="form-group mb-2">
+                              <label for="about_date_of_birth">about_date_of_birth</label>
+                              <input type="text" class="form-control" name="about_date_of_birth" />
+                              <span class="error_form" id="about_date_of_birth_error_message"></span>
+                            </div>
+
+                            <div class="form-group mb-2">
+                              <label for="about_nationality">about_nationality</label>
+                              <input type="text" class="form-control" name="about_nationality" />
+                              <span class="error_form" id="about_nationality_error_message"></span>
+                            </div>
+
+                            <div class="form-group mb-2">
+                              <label for="about_address">about_address</label>
+                              <input type="text" class="form-control" name="about_address" />
+                              <span class="error_form" id="about_address_error_message"></span>
+                            </div>
+
+                            <div class="form-group mb-2">
+                              <label for="about_btn_1">about_btn_1</label>
+                              <input type="text" class="form-control" name="about_btn_1" />
+                              <span class="error_form" id="about_btn_1_error_message"></span>
+                            </div>
+
+                            <div class="form-group mb-2">
+                              <label for="about_btn_2">about_btn_2</label>
+                              <input type="text" class="form-control" name="about_btn_2" />
+                              <span class="error_form" id="about_btn_2_error_message"></span>
+                            </div>
+
+                            <div class="form-group mt-3 mb-2">
+                              <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                          </form>
+                      </div>
+                  </div>
+             </div>
+             <div id="about_img" class="col-md-4">
+              
+             </div>
+        </div>
+    </div>
+
+<script src="../admin/js/jquery.min.js"></script>
+<script src="../admin/js/admin.js"></script>
+</body>
+</html>
