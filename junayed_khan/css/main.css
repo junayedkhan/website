@@ -94,6 +94,7 @@
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     cursor: pointer;
+    z-index: 10;
 }
 /* color change section */
 
@@ -332,7 +333,6 @@ nav{
     border: 2px solid var(--color);
     border-radius: 5px;
     margin: 0 3px;
-   
 }
 .statsItem:hover{
     box-shadow: -1px 0px 10px 7px rgba(0,0,0,0.25);

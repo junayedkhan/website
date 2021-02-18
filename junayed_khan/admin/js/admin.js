@@ -224,7 +224,7 @@ $(document).ready(()=> {
 
 
    $.get(`${root_url}/about`, res => {
-      console.log(res)
+
       $('input[name="about_title"]').val(res.about_title)
       $('input[name="about_designation"]').val(res.about_designation)
       $('input[name="about_description"]').val(res.about_description)
@@ -243,19 +243,17 @@ $(document).ready(()=> {
 
    // skills section start
 
-   $('.skills_form_submit').submit((event)=> {
+   $('.create_data_submit').click((event)=> {
       event.preventDefault()
 
       $('#skills_title_error_message').hide()
-      $('#skills_percent_error_message').hide()
-      $('#skills_name_error_message').hide()
-      $('#skills_description_error_message').hide()
+      $('#skills_designation_error_message').hide()
+
       
 
       let skills_title = $('input[name="skills_title"]').val() 
-      let skills_percent = $('input[name="skills_percent"]').val() 
-      let skills_name = $('input[name="skills_name"]').val() 
-      let skills_description = $('input[name="skills_description"]').val() 
+      let skills_designation = $('input[name="skills_designation"]').val() 
+
 
       if(skills_title === ""){
          $("#skills_title_error_message").html("content is empty").css('color','red');
@@ -263,47 +261,82 @@ $(document).ready(()=> {
       } else if(!pattern.test(skills_title)){
          $("#skills_title_error_message").html("Should contain only Characters").css('color','red');
          $("#skills_title_error_message").show();
-      } else if(skills_percent === ""){
-         $("#skills_percent_error_message").html("content is empty").css('color','red');
-         $("#skills_percent_error_message").show();
-      } else if(skills_name === ""){
-         $("#skills_name_error_message").html("content is empty").css('color','red');
-         $("#skills_name_error_message").show();
-      } else if(!pattern.test(skills_name)){
-         $("#skills_name_error_message").html("Should contain only Characters").css('color','red');
-         $("#skills_name_error_message").show();
-      } else if(skills_description === ""){
-         $("#skills_description_error_message").html("content is empty").css('color','red');
-         $("#skills_description_error_message").show();
-      } else {
+      } else if(skills_designation==""){
+         $("#skills_designation_error_message").html("content is empty").css('color','red');
+         $("#skills_designation_error_message").show();
+      } else{
           
-         var skills_data = new FormData();
-
-         skills_data.append('skills_title', skills_title)
-         skills_data.append('skills_percent', skills_percent)
-         skills_data.append('skills_name', skills_name)
-         skills_data.append('skills_description', skills_description)
-
-         $.ajax({
-            url: `${root_url}/skills`,
-            method: "POST",
-            data: skills_data,
-            contentType:false,
-            processData:false,
-            cache:false
-         }).done((res) => {
-            console.log(res)
-         }).fail((error) => {
-            console.log(error)
+         $.post(`${root_url}/skills_head`, {skills_title, skills_designation}, res => {
+            
          })
       }
 
+      // 
+      $.get(`${root_url}/skills_head`, res => {
+        if(res.about_title !== "" ){
+         $('input[name="skills_title"]').val(res.skills_title)
+        }
+        
+      })
 
 
 
    })
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////   
 
+$(".stats_from_submit").submit((event) => {
+   event.preventDefault()
+
+   ///////////////// error massage hide
+   $('#stats_icon_error_message').hide()
+   $('#stats_number_error_message').hide()
+   $('#stats_name_error_message').hide()
+
+   //////////////////////////////////////////////////////////
+   let stats_icon = $('input[name="stats_icon"]').val() 
+   let stats_number = $('input[name="stats_number"]').val() 
+   let stats_name = $('input[name="stats_name"]').val()
+
+   /////////////////////////////////////////////////////////// data validation
+   if(stats_icon==""){
+      $("#stats_icon_error_message").html("content is empty").css('color','red');
+      $('#stats_icon_error_message').show()
+   } else if(stats_number==""){
+      $("#stats_number_error_message").html("content is empty").css('color','red');
+      $('#stats_number_error_message').show()
+   } else if(stats_name==""){
+      $("#stats_name_error_message").html("content is empty").css('color','red');
+      $('#stats_name_error_message').show()
+   } else {
+
+      var stats_data = new FormData();
+
+      stats_data.append('stats_icon', stats_icon)
+      stats_data.append('stats_number', stats_number)
+      stats_data.append('stats_name', stats_name)
+
+      //////////////// data send server
+      $.ajax({
+         url: `${root_url}/stats`,
+         method: 'POST',
+         data: stats_data,
+         contentType:false,
+         processData:false,
+         cache:false
+     }).done(res=> {
+        console.log(res)
+     }).fail(error=> {
+        console.log(error)
+     })
+   } 
+
+})
+
+
+$.get(`${root_url}/stats`, res => {
+   console.log(res)
+})
 
 
 

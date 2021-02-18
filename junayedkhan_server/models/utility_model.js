@@ -41,6 +41,7 @@ const utility_schema = new mongoose.Schema({
         type:String,
         default:""
     }
+    
 },{
     timestamps:true
 })

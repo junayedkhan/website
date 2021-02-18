@@ -6,7 +6,8 @@ const mongoDB_connections = async ()=> {
     try {
         const connection = await mongoose.connect(mongoose_uri, {
             useNewUrlParser:true,
-            useCreateIndex:true
+            useCreateIndex:true,
+            useUnifiedTopology:true
         })
         console.log(`mongoDB connected with ${connection.connections[0].host}`)
     } catch (error) {

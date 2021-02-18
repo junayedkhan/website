@@ -15,8 +15,8 @@ momongoDB_connections()
 const user_model =require('./models/user_model')
 const utility_model = require('./models/utility_model');
 const about_model = require('./models/about_model');
-const skills_model = require('./models/skills_model');
-const stats_model = require('./models/stats_model')
+const { skills_create_model, skills_head_model} = require('./models/skills_model');
+const stats_model = require('./models/stats_model');
 const project_model = require('./models/project_model');
 const contect_model = require('./models/contect_model');
 const { static } = require('express');
@@ -45,7 +45,7 @@ const storage = multer.diskStorage({
 const upload = multer({
   storage:storage
 })
-//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   app.get("/utility", async(req, res)=> {
     let utility = await utility_model.findOne();
     if
@@ -65,6 +65,25 @@ app.get("/about", async(req, res) => {
   }
 })
 //
+app.get("/skills_head", async(req, res) => {
+  let skills_head = await skills_head_model.findOne()
+  if(skills_head){
+    res.json(skills_head)
+  } else {
+    res.json({data: 'skills data not found'})
+  }
+})
+// 
+app.get("/stats", async(req, res) => {
+  let stats = await stats_model.findOne()
+  if(stats){
+    res.json(stats)
+  } else {
+    res.json({success:false})
+  }
+})
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   app.post("/utility", upload.single('upload_baner_photo'), async(req, res) => {
     const {logo,
       baner_name,
@@ -143,15 +162,15 @@ app.get("/about", async(req, res) => {
           // update data
           about.about_title = about_title
           about.about_photo = image==null?about.about_photo:image
-          about.about_designation = about_title
-          about.about_description = about_title
-          about.about_name = about_title
-          about.about_email = about_title
-          about.about_date_of_birth = about_title
-          about.about_nationality = about_title
-          about.about_address = about_title
-          about.about_btn_1 = about_title
-          about.about_btn_2 = about_title
+          about.about_designation = about_designation
+          about.about_description = about_description
+          about.about_name = about_name
+          about.about_email = about_email
+          about.about_date_of_birth = about_date_of_birth
+          about.about_nationality = about_nationality
+          about.about_address = about_address
+          about.about_btn_1 = about_btn_1
+          about.about_btn_2 = about_btn_2
 
           let about_data_update = await about.save()
 
@@ -188,10 +207,82 @@ app.get("/about", async(req, res) => {
 
   })
 
-  app.post("/skills", (req, res) => {
-    console.log(req.body);
-    res.json({data: 'skills data found'})
+  app.post("/skills_head", async(req, res) => {
+    const {skills_title, skills_designation} = req.body
+    if(skills_title=="" || skills_designation==""){
+      res.json({success:false, message:"Please Fill out all the Field"})
+    } else {
+      let skills_head = await skills_head_model.findOne()
+        if(skills_head){
+          skills_head.skills_title = skills_title
+          skills_head.skills_designation = skills_designation
+        
+          let skills_head_updated = await skills_head.save()
+          if(skills_head_updated){
+            res.json({success:true, massage: 'skills_head data updated'})
+          } else {
+            res.json({success:false, massage: 'skills_head data not updated'})
+          }
+        //update data
+
+      } else {
+        // insart data
+        let new_skills_head = await new skills_head_model({
+          skills_title,
+          skills_designation
+        }).save()
+
+        if(new_skills_head){
+          res.json({success:true, massage: 'skills_head data found'})
+        } else {
+          res.json({success:false, massage: 'skills_head not data found'})
+        }
+      }
+    }
   })
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+app.post("/stats", async(req, res) => {
+  const {stats_icon,
+    stats_number,
+    stats_name} = req.body
+  if(stats_icon=="" || stats_number=="" || stats_name==""){
+    res.json({success:false, data: 'Please Fill out all the Field'})
+  } else {
+
+    let stats = await stats_model.findOne();
+    if(stats){
+
+      stats.stats_icon = stats_icon
+      stats.stats_number = stats_number
+      stats.stats_name = stats_name
+
+    let stats_update = await stats.save()
+
+    if(stats_update){
+      console.log(stats_update)
+      res.json({success:true, data: 'stats data update'})
+    } else {
+      res.json({success:false, data: 'stats data not update'})
+    }
+
+    } else {
+      let new_stats = await new stats_model({
+        stats_icon,
+        stats_number,
+        stats_name
+      }).save()
+
+      if(new_stats){
+        res.json({success:true, data: "new stats data add"})
+      } else {
+        res.json({success:false, data: 'new stats data not add'})
+      }
+    }
+  }
+})
+
 
 app.get('/', (req, res) => {
     res.send('<h1 style="text-align:center;">Server running </h1>')
